@@ -1,0 +1,26 @@
+/* <nav className="navbar">
+<ul className="navbar__list">
+  <li className="navbar__list__item">JEJA</li>
+  <li className="navbar__list__item">JEJA</li>
+  <li className="navbar__list__item">JEJA</li>
+  <li className="navbar__list__item">JEJA</li>
+</ul>
+</nav> */
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: 100vw;
+  overflow: auto;
+}
+.navbar__list__item {
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+.navbar__list__item--selected {
+  border-bottom: solid black 2px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
