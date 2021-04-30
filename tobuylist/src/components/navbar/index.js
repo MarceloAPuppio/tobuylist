@@ -8,30 +8,27 @@ export default function NavBar() {
   const [arrayCategorias, setArrayCategorias] = useState([]);
 
   useEffect(() => {
-    // setArrayCategorias=new Set([...products.map(((p)=>p.category)])
+    //similar a un didmount, traemos todas las categorías existentes y las cargasmos en arrayCateg...
+    let arr = products.map((p) => p.category);
+    setArrayCategorias(new Set(arr.flat()));
   }, []);
   const handleClick = (e) => {
+    const allItems = document.querySelectorAll(".navbar__list__item");
+    allItems.forEach((e) => e.classList.remove("navbar__list__item--selected"));
+    e.target.classList.add("navbar__list__item--selected");
     let categoria = e.target.innerText.toLowerCase();
     const filtrados = products.filter((p) => p.category.includes(categoria));
     setFilterProducts(filtrados);
-    console.log(e.target.innerText.toLowerCase());
-    console.log(products, filterProducts);
   };
   return (
     <nav className="navbar">
       <ul className="navbar__list">
-        <li className="navbar__list__item navbar__list__item--selected">
-          Vegetales
-        </li>
-        <li className="navbar__list__item" onClick={handleClick}>
-          Frutas
-        </li>
-        <li className="navbar__list__item">Almacen</li>
-        <li className="navbar__list__item">Limpieza</li>
-        <li className="navbar__list__item">Higiene</li>
-        <li className="navbar__list__item">Infusiones</li>
-        <li className="navbar__list__item">Bebidas</li>
-        <li className="navbar__list__item">Congelados</li>
+        {arrayCategorias &&
+          [...arrayCategorias].map((cat) => (
+            <li className="navbar__list__item" onClick={handleClick}>
+              {cat}
+            </li>
+          ))}
       </ul>
     </nav>
   );

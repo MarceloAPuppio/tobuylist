@@ -8,9 +8,11 @@ function App() {
   const [products, setProducts] = useState([
     { name: "Manzana", icon: "🍏", category: ["frutas"] },
     { name: "Pera", icon: "🍏", category: ["frutas"] },
-    { name: "Tomate", icon: "🍏", category: ["frutas"] },
+    { name: "Tomate", icon: "🍏", category: ["frutas", "verduras"] },
     { name: "Choclo", icon: "🌽", category: ["verduras"] },
     { name: "mate", icon: "🧉", category: ["infusiones"] },
+    { name: "papel higiénico", icon: "🧉", category: ["higiene"] },
+    { name: "vasos", icon: "🧉", category: ["bazar"] },
   ]);
   const [filterProducts, setFilterProducts] = useState([]);
   // useEffect(() => {
